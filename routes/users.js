@@ -91,6 +91,17 @@ router.post('/report', async (req, res) => {
     }
 });
 
+//get all reports 
+
+router.get('/reports', async (req, res) => {
+    try {
+        const reports = await Report.find().sort({ createdAt: -1 }).limit(100).lean();
+        res.json({ ok: true, reports });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ ok: false, error: err.message });
+    }
+})
 // GET /api/users/my-reports?phone=...
 router.get('/my-reports', async (req, res) => {
     try {

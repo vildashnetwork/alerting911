@@ -196,5 +196,5 @@ app.use((req, res, next) => {
 app.use('/api/report', usersRouter);     // user/report actions
 app.use('/api/owners', ownersRouter);   // owner actions + admin
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 server.listen(port, () => console.log('Server listening on port', port));
